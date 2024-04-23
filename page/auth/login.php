@@ -22,26 +22,6 @@ if (isset($_POST['submit'])) {
 
     if (empty($username) || empty($password)) {
         $pesan_error = "Username atau password harus diisi.";
-    } else {
-        $query = "SELECT password FROM kasir WHERE username = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows == 0) {
-            $pesan_error = "Username tidak terdaftar.";
-        } else {
-            $row = $result->fetch_assoc();
-            $hashed_password = $row['password'];
-
-            if (password_verify($password, $hashed_password)) {
-                header("Location: ../../index.php");
-                exit;
-            } else {
-                $pesan_error = "Password tidak sesuai.";
-            }
-        }
     }
 }
 ?>
