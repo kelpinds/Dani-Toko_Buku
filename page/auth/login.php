@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     if (empty($username) || empty($password)) {
-        $pesan_error = "Username atau password harus diisi.";
+        $pesan_error = "Username atau password harus di isi.";
     }
 }
 ?>
